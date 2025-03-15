@@ -9,7 +9,7 @@
         private static ?mysqli $conn = null;
     
         public static function connect() {
-            self::$conn = new mysqli("localhost", "root", "root", "products_crud");
+            self::$conn = new mysqli("127.0.0.1", "root", "root", "products_crud");
             if (self::$conn->connect_error) {
                 throw new Exception("Connection Failed: " . self::$conn->connect_error);
             }

@@ -57,11 +57,18 @@ class ProductRepository {
     
         $products = [];
         while ($row = $result->fetch_assoc()) {
-            $products[] = new Product($row['id'], $row['name'], $row['category'], $row['stock'], $row['created_at']);
+            $products[] = [
+                'id' => $row['id'],
+                'name' => $row['name'],
+                'category' => $row['category'],
+                'stock' => $row['stock'],
+                'created_at' => $row['created_at']
+            ];
         }
     
         return $products;
     }
+    
     
 
     public function update(Product $product): bool {
